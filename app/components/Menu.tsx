@@ -1,0 +1,51 @@
+'use client'
+
+import Link from 'next/link'
+import useSeries from '../hooks/useSeries'
+import { useRef } from 'react'
+
+function Menu(): React.JSX.Element {
+	const [series, filter, setFilter] = useSeries()
+
+	const search = useRef<HTMLInputElement>(null)
+
+	const updateSeries = (): void => {
+		setFilter(series)
+		setFilter(currentFiltered => {
+			return currentFiltered.filter(s => s.title.toLowerCase().includes(search.current!.value.toLowerCase()))
+		})
+	}
+
+	return (
+		<>
+			<input
+				ref={search}
+				type='text'
+				onChange={() => {
+					updateSeries()
+				}}
+				placeholder='Buscar comics'
+				className='inline-block w-full outline-none py-2 px-4 font-bold text-black border-green'
+			/>
+			<nav className='main-menu'>
+				<ul
+					className='w-full overflow-y-auto overflow-x-clip max-w-64 pt-3 border-b-2 absolute top-[103px] bottom-[33px]'
+					style={{ backgroundColor: 'rgb(var(--black))', borderBottomColor: 'rgb(var(--dark-green))' }}>
+					{filter?.map((serie, index) => {
+						return (
+							<li key={index}>
+								<Link
+									href={`/categorias/${serie.url}`}
+									className='block pl-4 pb-1 hover:bg-[rgb(var(--green))] text-border-green'>
+									{serie.title}
+								</Link>
+							</li>
+						)
+					})}
+				</ul>
+			</nav>
+		</>
+	)
+}
+
+export default Menu
