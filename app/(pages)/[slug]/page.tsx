@@ -3,7 +3,7 @@
 import Button from '@/app/components/Button'
 import useComic from '@/app/hooks/useComic'
 import Link from 'next/link'
-import Image from 'next/image'
+// import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
 function Comic({ params }: { params: { slug: string } }): React.JSX.Element {
