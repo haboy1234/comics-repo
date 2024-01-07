@@ -29,13 +29,13 @@ export async function getAllSeries(): Promise<SERIE[]> {
 export async function getComics(serieSlug: string): Promise<[SERIE, COMIC[]]> {
 	const serie: SERIE = await getSerieIdByURL(serieSlug)
 	if (Object.keys(serie).length === 0) {
-		return [serie,[]]
+		return [serie, []]
 	}
 	const url: string = `/api/comics?serieId=${serie.id}`
 	const response = await fetch(url)
-	const data = await response.json() as COMIC[]
+	const data = (await response.json()) as COMIC[]
 	// GET PAGES IMAGES OF THE FIRST COMIC TO USE IF THE SERIE IMAGE FAILS
-	const pages: string[] =  await getPages(data[0].id, serie.title)
+	const pages: string[] = await getPages(data[0].id, serie.title)
 	data[0].pages = pages
 	return [serie, data]
 }
@@ -51,21 +51,20 @@ export async function getComicBySlug(slug: string): Promise<[SERIE, COMIC]> {
 	// GET SERIE OBJECT OF THE COMIC
 	const serie: SERIE = await getSerieById(data.serieId)
 	// GET PREV AND NEXT URL FROM COMIC OBJECT
-	if(typeof data.prev === 'number'){
-		const prevComic =  await getComicById(data.prev)
+	if (typeof data.prev === 'number') {
+		const prevComic = await getComicById(data.prev)
 		data.prevUrl = prevComic!.url
 	}
-	if(typeof data.next === 'number'){
-		const nextComic =  await getComicById(data.next)
+	if (typeof data.next === 'number') {
+		const nextComic = await getComicById(data.next)
 		data.nextUrl = nextComic!.url
 	}
 	// GET PAGES
-	const pages: string[] =  await getPages(data.id, serie.title)
+	const pages: string[] = await getPages(data.id, serie.title)
 	data.pages = pages
 
 	return [serie, data]
 }
-
 
 async function getComicById(id: number): Promise<COMIC | null> {
 	const url: string = `/api/comic?id=${id}`
@@ -76,7 +75,6 @@ async function getComicById(id: number): Promise<COMIC | null> {
 	}
 	return data
 }
-
 
 // PAGES
 

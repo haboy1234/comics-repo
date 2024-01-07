@@ -15,10 +15,10 @@ function Categories({ params }: { params: { slug: string } }): React.JSX.Element
 		return <></>
 	} else if (comics === null) {
 		notFound()
-	}else{
-		try{
+	} else {
+		try {
 			altImage = comics[0].pages?.at(0)
-		}catch(e){
+		} catch (e) {
 			altImage = '/images/notfound.webp'
 		}
 	}
@@ -33,7 +33,9 @@ function Categories({ params }: { params: { slug: string } }): React.JSX.Element
 						<Image src='/images/comicpage.svg' alt='Fondo de página de comic' width={500} height={791} />
 					</span>
 				</div>
-				<h1 className='relative mt-8 mb-4 font-bold uppercase tracking-widest text-4xl text-border-green'>{serie.title}</h1>
+				<h1 className='relative mt-8 mb-4 font-bold uppercase tracking-widest text-4xl text-border-green'>
+					{serie.title}
+				</h1>
 			</div>
 			{comics?.map((comic, i) => {
 				return (
@@ -41,11 +43,7 @@ function Categories({ params }: { params: { slug: string } }): React.JSX.Element
 						key={i}
 						href={`/${comic.url}`}
 						className='mosaic__item group after:content group relative after:pointer-events-none after:absolute after:inset-0 rounded-lg after:shadow-highlight overflow-hidden'>
-						<ListImage
-							src={`/images/${comic.image}`}
-							altSrc={altImage}
-							title={comic.title}
-						/>
+						<ListImage src={`/images/${comic.image}`} altSrc={altImage} title={comic.title} />
 						<h2
 							className='bottom-0 w-full absolute z-10 text-border-green text-2xl text-center py-2'
 							style={{ backgroundColor: 'rgb(var(--dark-green), 0.6)' }}>

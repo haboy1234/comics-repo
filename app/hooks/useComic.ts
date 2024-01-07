@@ -11,7 +11,7 @@ const useComic = (slug: string): [SERIE | null, COMIC | null] => {
 
 	useEffect(() => {
 		const fetchComic = async (): Promise<void> => {
-			const [ serieData, comicDetail ]: [ SERIE, COMIC ] = await getComicBySlug(slug)
+			const [serieData, comicDetail]: [SERIE, COMIC] = await getComicBySlug(slug)
 			setComic(Object.keys(comicDetail).length > 0 ? comicDetail : null)
 			setSerie(Object.keys(comicDetail).length > 0 ? serieData : null)
 		}

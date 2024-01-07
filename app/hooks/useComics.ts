@@ -11,14 +11,14 @@ const useComics = (slug: string): [SERIE, COMIC[] | null] => {
 
 	useEffect(() => {
 		const fetchComics = async (): Promise<void> => {
-			const [serie, comicsList]:[SERIE, COMIC[]] = await getComics(slug)
+			const [serie, comicsList]: [SERIE, COMIC[]] = await getComics(slug)
 			setComics(comicsList.length > 0 ? comicsList : null)
 			setSerie(serie)
 		}
 		fetchComics().catch(() => {})
 	}, [slug])
 
-	return  [serie, comics]
+	return [serie, comics]
 }
 
 export default useComics

@@ -19,7 +19,7 @@ export async function GET(request: Request): Promise<Response> {
 			comic = res.comics.filter((c: COMIC) => {
 				return c.url === paramSlug
 			})
-		} else if (paramId !== null) { 
+		} else if (paramId !== null) {
 			comic = res.comics.filter((c: COMIC) => {
 				return c.id === parseInt(paramId)
 			})

@@ -14,11 +14,11 @@ export async function GET(request: Request): Promise<Response> {
 	try {
 		const res = await JSON.parse(file)
 		let serie = []
-		if (paramUrl !== null){
+		if (paramUrl !== null) {
 			serie = res.series.filter((s: SERIE) => {
 				return s.url === paramUrl
 			})
-		}else if (paramId !== null){
+		} else if (paramId !== null) {
 			serie = res.series.filter((s: SERIE) => {
 				return s.id === parseInt(paramId)
 			})

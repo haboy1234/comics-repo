@@ -12,8 +12,8 @@ export async function GET(request: Request): Promise<Response> {
 	const file = await fs.readFile(`${db}-${paramLetter}.json`, 'utf8')
 	try {
 		const res = await JSON.parse(file)
-		const	pages = res.pages.filter((p: {id: number, pages: []}) => {
-				return p.id === parseInt(paramId)
+		const pages = res.pages.filter((p: { id: number; pages: [] }) => {
+			return p.id === parseInt(paramId)
 		})
 		return Response.json(pages[0].pages)
 	} catch (e) {

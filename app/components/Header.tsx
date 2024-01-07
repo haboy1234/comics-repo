@@ -1,9 +1,7 @@
 import Menu from './Menu'
 import WebTitle from './WebTitle'
 
-
 function Header(): React.JSX.Element {
-
 	return (
 		<header
 			className='flex flex-col mt-0 mx-auto w-screen lg:w-auto lg:flex-[0_0_16rem] h-screen lg:sticky top-0'
