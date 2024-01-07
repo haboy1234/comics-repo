@@ -5,14 +5,22 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { type SERIE, type COMIC } from '@/app/types'
+import ListImage from '@/app/components/ListImage'
 
 function Categories({ params }: { params: { slug: string } }): React.JSX.Element {
 	const [serie, comics]: [SERIE, COMIC[] | null] = useComics(params.slug)
 
+	let altImage: string | undefined = ''
 	if (comics?.length === 0) {
 		return <></>
 	} else if (comics === null) {
 		notFound()
+	}else{
+		try{
+			altImage = comics[0].pages?.at(0)
+		}catch(e){
+			altImage = '/images/notfound.webp'
+		}
 	}
 
 	return (
@@ -33,12 +41,10 @@ function Categories({ params }: { params: { slug: string } }): React.JSX.Element
 						key={i}
 						href={`/${comic.url}`}
 						className='mosaic__item group after:content group relative after:pointer-events-none after:absolute after:inset-0 rounded-lg after:shadow-highlight overflow-hidden'>
-						<Image
+						<ListImage
 							src={`/images/${comic.image}`}
-							width={300}
-							height={491}
-							alt={comic.title}
-							className='w-full opacity-85 group-hover:opacity-45'
+							altSrc={altImage}
+							title={comic.title}
 						/>
 						<h2
 							className='bottom-0 w-full absolute z-10 text-border-green text-2xl text-center py-2'

@@ -33,8 +33,11 @@ export async function getComics(serieSlug: string): Promise<[SERIE, COMIC[]]> {
 	}
 	const url: string = `/api/comics?serieId=${serie.id}`
 	const response = await fetch(url)
-	const data = await response.json()
-	return [serie, data as COMIC[]]
+	const data = await response.json() as COMIC[]
+	// GET PAGES IMAGES OF THE FIRST COMIC TO USE IF THE SERIE IMAGE FAILS
+	const pages: string[] =  await getPages(data[0].id, serie.title)
+	data[0].pages = pages
+	return [serie, data]
 }
 
 export async function getComicBySlug(slug: string): Promise<[SERIE, COMIC]> {
