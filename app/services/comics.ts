@@ -57,7 +57,7 @@ export async function getComicBySlug(slug: string): Promise<[SERIE, COMIC]> {
 		data.nextUrl = nextComic!.url
 	}
 	// GET PAGES
-	const pages: string[] =  await getPages(data.id, data.title)
+	const pages: string[] =  await getPages(data.id, serie.title)
 	data.pages = pages
 
 	return [serie, data]
