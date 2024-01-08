@@ -47,9 +47,8 @@ function Comic({ params }: { params: { slug: string } }): React.JSX.Element {
 					Object.keys(comic.pages).length > 0 &&
 					comic.pages?.map((page: string, i: number) => {
 						return (
-							<>
+							<div key={i}>
 								<Image
-									key={i}
 									src={page}
 									alt={`Página ${i + 1} del comic ${comic.title}`}
 									width={1024}
@@ -59,7 +58,7 @@ function Comic({ params }: { params: { slug: string } }): React.JSX.Element {
 									className='w-full h-auto block'
 								/>
 								{i % 5 === 0 ? <Ad /> : <></>}
-							</>
+							</div>
 						)
 					})}
 			</div>
