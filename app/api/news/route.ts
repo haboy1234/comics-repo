@@ -12,8 +12,8 @@ export async function GET(request: Request): Promise<Response> {
 	const pageParam: string | null = searchParams.get('page')
 	const page: number = pageParam === null ? 1 : parseInt(pageParam)
 	const file = await fs.readFile(db, 'utf8')
-	const newsPerPage: number = 10
-	const from = (page - 1) * 10
+	const newsPerPage: number = 12
+	const from = (page - 1) * newsPerPage
 	const to = from + newsPerPage
 	try {
 		const res = await JSON.parse(file)

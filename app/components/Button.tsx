@@ -5,7 +5,7 @@ function Button({ children, href, rel }: { children: React.ReactNode; href: stri
 		<Link
 			href={href}
 			rel={rel}
-			className='block p-4 mt-[2px] flex-[0_0_200px] text-border-green hover:bg-[rgb(var(--dark-green))]'>
+			className='block p-4 mt-[2px] flex-[0_0_200px] text-border-green bg-[rgb(var(--green))] hover:bg-[rgb(var(--dark-green))]'>
 			{children}
 		</Link>
 	)
