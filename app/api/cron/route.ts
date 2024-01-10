@@ -124,9 +124,11 @@ export async function GET(): Promise<Response> {
 	const res = await JSON.parse(file)
 	// GENERATE 1 OR 2 NEWS
 	const news: NEW[] = await generateNews()
-	news.forEach(n => {
-		res.news.push(n)
-	})
+		try{
+		news.forEach(n => {
+			res.news.push(n)
+		})
+	}catch(e){}
 	// SAVE ALL
 	await fs.writeFile(db, JSON.stringify(res))
 	return Response.json({ result: 'News updated' })
