@@ -32,9 +32,9 @@ function NewsList({ page }: { page: number }): React.JSX.Element {
 								</a>
 								<div className='p-5'>
 									<a href={`/blog/${n.url}`}>
-										<h2 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white'>{n.title}</h2>
+										<h2 className='mb-2 text-2xl font-bold tracking-tight  text-white'>{n.title}</h2>
 									</a>
-									<div className='text-xs font-bold uppercase text-teal-700 mt-1 mb-2'>{`${new Date(
+									<div className='text-xs font-bold uppercase text-[rgb(var(--green))] mt-1 mb-2'>{`${new Date(
 										n.date
 									).toLocaleDateString('es-es', {
 										year: 'numeric',
@@ -66,18 +66,20 @@ function NewsList({ page }: { page: number }): React.JSX.Element {
 						)
 					})}
 				</div>
-				{page > 1 && (
+				{page > 1 && news.length > 0 && (
 					<div className='py-3 inline-block'>
 						<Button href={`/blog/${page - 1}`} rel='prev'>
 							Anterior
 						</Button>
 					</div>
 				)}
-				<div className='float-right py-3 inline-block'>
-					<Button href={`/blog/${page + 1}`} rel='next'>
-						Siguiente
-					</Button>
-				</div>
+				{news.length > 0 && (
+					<div className='float-right py-3 inline-block'>
+						<Button href={`/blog/${page + 1}`} rel='next'>
+							Siguiente
+						</Button>
+					</div>
+				)}
 			</div>
 		</div>
 	)
