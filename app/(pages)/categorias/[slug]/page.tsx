@@ -2,7 +2,7 @@ import ComicList from '@/app/components/ComicList'
 import { type Metadata } from 'next'
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-	const url: string = `http://localhost:3000/api/serie?url=${params.slug}`
+	const url: string = `https://comics-repo.vercel.app/api/serie?url=${params.slug}`
 	const response = await fetch(url)
 	const serie = await response.json()
 	return {

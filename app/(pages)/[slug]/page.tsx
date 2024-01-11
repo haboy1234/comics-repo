@@ -3,7 +3,7 @@ import { type COMIC } from '@/app/types'
 import { type Metadata } from 'next'
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-	const url: string = `http://localhost:3000/api/comic?slug=${params.slug}`
+	const url: string = `https://comics-repo.vercel.app/api/comic?slug=${params.slug}`
 	const response = await fetch(url)
 	const comic = (await response.json()) as COMIC
 	return {
