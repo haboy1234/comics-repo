@@ -11,6 +11,7 @@ function NewsList({ page }: { page: number }): React.JSX.Element {
 	if (news === null) {
 		notFound()
 	}
+	window.scrollTo(0, 0)
 
 	return (
 		<div className=' mx-auto lg:max-w-7xl mt-3 '>
@@ -34,7 +35,7 @@ function NewsList({ page }: { page: number }): React.JSX.Element {
 									<a href={`/blog/${n.url}`}>
 										<h2 className='mb-2 text-2xl font-bold tracking-tight  text-white'>{n.title}</h2>
 									</a>
-									<div className='text-xs font-bold uppercase text-[rgb(var(--green))] mt-1 mb-2'>{`${new Date(
+									<div className='text-xs font-bold uppercase text-[#46635b] mt-1 mb-2'>{`${new Date(
 										n.date
 									).toLocaleDateString('es-es', {
 										year: 'numeric',
