@@ -10,8 +10,9 @@ function NewsList({ page }: { page: number }): React.JSX.Element {
 	const news: NEW[] = useNews(page)
 	if (news === null) {
 		notFound()
+	} else if (news.length > 0) {
+		window.scrollTo(0, 0)
 	}
-	window.scrollTo(0, 0)
 
 	return (
 		<div className=' mx-auto lg:max-w-7xl mt-3 '>
