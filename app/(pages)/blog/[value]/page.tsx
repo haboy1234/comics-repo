@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: { value: string } }
 				title: name,
 				description: name,
 				type: 'article',
-				url: new URL('https://leercomicsonline.com')
+				url: new URL(`https://leercomicsonline.com/blog/${params.value}/`)
 			},
 			twitter: {
 				title: name,
@@ -22,7 +22,11 @@ export async function generateMetadata({ params }: { params: { value: string } }
 			}
 		}
 	} else {
-		return {}
+		return {
+			openGraph: {
+				url: new URL(`https://leercomicsonline.com/blog/${params.value}/`)
+			}
+		}
 	}
 }
 
