@@ -15,7 +15,7 @@ function NewsList({ page }: { page: number }): React.JSX.Element {
 	return (
 		<div className=' mx-auto lg:max-w-7xl mt-3 '>
 			<div className='max-w-7xl mx-auto px-5 mb-3'>
-				<div className='mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8'>
+				<div className='mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 xl:grid-cols-3 xl:gap-x-8'>
 					{news?.map((n, i) => {
 						return (
 							<div
@@ -25,7 +25,7 @@ function NewsList({ page }: { page: number }): React.JSX.Element {
 									<Image
 										className='rounded-t-lg pb-2 min-h-56'
 										src={`/images/${n.image}`}
-										width={400}
+										width={600}
 										height={300}
 										alt={n.title}
 									/>

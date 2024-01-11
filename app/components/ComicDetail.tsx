@@ -16,15 +16,16 @@ function ComicDetail({ slug }: { slug: string }): React.JSX.Element {
 
 	return (
 		<section>
-			<div className='flex sticky top-0 min-h-[60px] bg-[rgb(var(--green))] text-center'>
+			<div className='flex sticky top-0 min-h-[62px] bg-[rgb(var(--green))] text-center z-10 border-b-2 border-[rgb(var(--dark-green))]'>
+				<div className='lg:hidden flex-[60px_0_0]'></div>
 				{comic.prevUrl !== undefined ? (
 					<Button href={comic.prevUrl} rel='prev'>
 						Anterior
 					</Button>
 				) : (
-					<div className='flex-[0_0_200px]'></div>
+					<div className='flex-1 lg:flex-[0_0_200px]'></div>
 				)}
-				<div className='flex-1 text-lg pb-1'>
+				<div className='flex-1 text-lg pb-1 hidden lg:block'>
 					<Link
 						href={serie?.url !== null ? `/categorias/${serie?.url}` : ''}
 						rel='category'
@@ -38,8 +39,17 @@ function ComicDetail({ slug }: { slug: string }): React.JSX.Element {
 						Siguiente
 					</Button>
 				) : (
-					<div className='flex-[0_0_200px]'></div>
+					<div className='flex-1 lg:flex-[0_0_200px]'></div>
 				)}
+			</div>
+			<div className='flex flex-col text-lg pb-2 bg-[rgb(var(--green))] text-center lg:hidden relative border-b-2 border-[rgb(var(--dark-green))]'>
+				<Link
+					href={serie?.url !== null ? `/categorias/${serie?.url}` : ''}
+					rel='category'
+					className='text-sm underline underline-offset-4 py-2 hover:no-underline opacity-70'>
+					{serie?.title}
+				</Link>
+				<h1 className='text-border-green'>{comic.title}</h1>
 			</div>
 			<div className='max-w-5xl mx-auto mb-[50vh]'>
 				<Ad />
