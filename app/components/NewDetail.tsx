@@ -15,7 +15,13 @@ function NewDetail({ slug }: { slug: string }): React.JSX.Element {
 
 	return (
 		<article className='w-full max-w-2xl mx-auto pb-8 bg-[rgb(var(--black))]'>
-			<Image src={`/images/${n?.image}`} width={500} height={500} alt={n?.title} className='relative w-full h-auto' />
+			<Image
+				src={`/images/${n?.image}`}
+				width={window.innerWidth < 500 ? window.innerWidth : 500}
+				height={500}
+				alt={n?.title}
+				className='relative w-full h-auto'
+			/>
 			<time className='text-border-green text-xl lg:text-3xl bg-[rgb(var(--green))] inline-block -mt-14 z-10 relative p-4 float-right rounded-tl-lg'>
 				{`${new Date(n.date).toLocaleDateString('es-es', {
 					year: 'numeric',

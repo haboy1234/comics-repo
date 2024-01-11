@@ -33,7 +33,7 @@ function ComicList({ slug }: { slug: string }): React.JSX.Element {
 						<Image
 							src='/images/comicpage.svg'
 							alt='Fondo de página de comic'
-							width={500}
+							width={window.innerWidth < 500 ? window.innerWidth : 500}
 							height={791}
 							className='hidden lg:block'
 						/>

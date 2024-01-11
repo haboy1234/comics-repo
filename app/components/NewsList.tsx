@@ -27,7 +27,7 @@ function NewsList({ page }: { page: number }): React.JSX.Element {
 									<Image
 										className='rounded-t-lg pb-2 min-h-56'
 										src={`/images/${n.image}`}
-										width={600}
+										width={window.innerWidth < 600 ? window.innerWidth : 600}
 										height={300}
 										alt={n.title}
 									/>
