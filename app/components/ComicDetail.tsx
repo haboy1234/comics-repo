@@ -42,7 +42,7 @@ function ComicDetail({ slug }: { slug: string }): React.JSX.Element {
 					<div className='flex-1 lg:flex-[0_0_200px]'></div>
 				)}
 			</div>
-			<div className='flex flex-col text-lg pb-2 bg-[rgb(var(--green))] text-center lg:hidden relative border-b-2 border-[rgb(var(--dark-green))]'>
+			<div className='flex flex-col text-lg pb-2 bg-[rgb(var(--green))] text-center lg:hidden relative border-b-2 border-[rgb(var(--dark-green))] min-h-[74px]'>
 				<Link
 					href={serie?.url !== null ? `/categorias/${serie?.url}` : ''}
 					rel='category'
