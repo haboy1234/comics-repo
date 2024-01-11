@@ -1,6 +1,30 @@
 import NewDetail from '@/app/components/NewDetail'
 import NewsList from '@/app/components/NewsList'
+import { type Metadata } from 'next'
 import { redirect } from 'next/navigation'
+
+export async function generateMetadata({ params }: { params: { value: string } }): Promise<Metadata> {
+	if (isNaN(parseInt(params.value))) {
+		const name = params.value.replace(/-/g, ' ').charAt(0).toUpperCase() + params.value.replace(/-/g, ' ').slice(1)
+		return {
+			title: name,
+			description: name,
+			openGraph: {
+				title: name,
+				description: name,
+				type: 'article',
+				url: new URL('https://leercomicsonline.com')
+			},
+			twitter: {
+				title: name,
+				description: name,
+				images: [`/_next/image?url=/images/${params.value}.jpg&w=640&q=75`]
+			}
+		}
+	} else {
+		return {}
+	}
+}
 
 function Blog({ params }: { params: { value: string } }): React.JSX.Element {
 	let page: number | null = null

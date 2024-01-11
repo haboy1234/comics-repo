@@ -1,5 +1,5 @@
 function Ad(): React.JSX.Element {
-	return <div>Soy un anuncio</div>
+	return <div></div>
 }
 
 export default Ad
