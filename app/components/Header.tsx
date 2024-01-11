@@ -19,6 +19,8 @@ function Header(): React.JSX.Element {
 			} lg:left-0 lg:w-auto flex-[0_0_16rem] h-screen fixed lg:sticky top-0 z-30 border-r-2 lg:border-r-0 border-[rgb(var(--dark-green))]`}
 			style={{ backgroundColor: 'rgb(var(--green))' }}>
 			<button
+				aria-expanded={responsiveMenuExpanded}
+				aria-label='Main Menu Show/Hide'
 				className='inline'
 				onClick={() => {
 					toogleResponsiveMenu()
