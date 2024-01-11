@@ -8,6 +8,7 @@ function Header(): React.JSX.Element {
 	const [responsiveMenuExpanded, setResponsiveMenuExpanded] = useState<boolean>(false)
 
 	const toogleResponsiveMenu = (): void => {
+		document.body.style.overflow = responsiveMenuExpanded ? 'auto' : 'hidden'
 		setResponsiveMenuExpanded(currentMenuState => !currentMenuState)
 	}
 
