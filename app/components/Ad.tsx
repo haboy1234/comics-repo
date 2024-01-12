@@ -1,4 +1,12 @@
+import { useEffect } from 'react'
+
 function Ad(): React.JSX.Element {
+	useEffect(() => {
+		try {
+			window.adsbygoogle.push({})
+		} catch (e) {}
+	})
+
 	return (
 		<div>
 			<ins
@@ -9,7 +17,6 @@ function Ad(): React.JSX.Element {
 				data-ad-format='auto'
 				data-full-width-responsive='true'
 			/>
-			(adsbygoogle = window.adsbygoogle || []).push({})
 		</div>
 	)
 }
