@@ -42,6 +42,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
 					<Header />
 					<main className='flex-1 bg-cover relative'>{children}</main>
 				</div>
+				<script
+					async
+					src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4311249285901114'
+					crossOrigin='anonymous'></script>
 			</body>
 		</html>
 	)
