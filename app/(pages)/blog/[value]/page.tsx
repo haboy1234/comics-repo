@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: { value: string } }
 			twitter: {
 				title: name,
 				description: name,
-				images: [`/_next/image?url=/images/${params.value}.jpg&w=640&q=75`]
+				images: [params.value]
 			}
 		}
 	} else {

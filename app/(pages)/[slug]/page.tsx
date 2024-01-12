@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 		twitter: {
 			title: `${comic?.title} - Leer Comics Online`,
 			description: comic?.title,
-			images: [`/_next/image?url=/images/${comic?.image}&w=640&q=75`]
+			images: [comic?.image]
 		}
 	}
 }
