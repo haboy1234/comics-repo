@@ -523,6 +523,7 @@
 		{ "id": 515, "title": "The Amazing Spider-Man & Silk", "url": "the-amazing-spider-man-silk" },
 		{ "id": 516, "title": "The Amazing Spider-Man Vol. 3", "url": "the-amazing-spider-man-vol-3" },
 		{ "id": 517, "title": "The Amazing Spider-Man Vol. 4", "url": "the-amazing-spider-man-vol-4" },
+		{ "id": 588, "title": "The Boys", "url": "the-boys" },
 		{ "id": 520, "title": "The Button", "url": "the-button" },
 		{ "id": 521, "title": "The Courtyard", "url": "the-courtyard" },
 		{ "id": 523, "title": "The Darkness", "url": "the-darkness" },
@@ -586,7 +587,6 @@
 		{ "id": 583, "title": "X-Men La Era del Apocalipsis", "url": "x-men-la-era-del-apocalipsis" },
 		{ "id": 584, "title": "X-O Manowar", "url": "x-o-manowar" },
 		{ "id": 585, "title": "Y: The last man", "url": "y-the-last-man" },
-		{ "id": 586, "title": "Young Avengers Vol. 2", "url": "young-avengers-vol-2" },
-		{ "id": 588, "title": "The Boys", "url": "the-boys" }
+		{ "id": 586, "title": "Young Avengers Vol. 2", "url": "young-avengers-vol-2" }
 	]
 }
