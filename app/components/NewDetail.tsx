@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import useNew from '../hooks/useNew'
 import { type NEW } from '../types'
 import Image from 'next/image'
+import Ad from './Ad'
 
 function NewDetail({ slug }: { slug: string }): React.JSX.Element {
 	const n: NEW = useNew(slug)
@@ -36,6 +37,7 @@ function NewDetail({ slug }: { slug: string }): React.JSX.Element {
 				return (
 					<p className='my-5 px-6 lg:px-8' key={i}>
 						{c}
+						{i % 5 === 0 ? <Ad /> : <></>}
 					</p>
 				)
 			})}

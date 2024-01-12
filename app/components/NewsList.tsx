@@ -5,6 +5,7 @@ import useNews from '../hooks/useNews'
 import { type NEW } from '../types'
 import Image from 'next/image'
 import Button from './Button'
+import Ad from './Ad'
 
 function NewsList({ page }: { page: number }): React.JSX.Element {
 	const news: NEW[] = useNews(page)
@@ -17,6 +18,7 @@ function NewsList({ page }: { page: number }): React.JSX.Element {
 	return (
 		<div className=' mx-auto lg:max-w-7xl mt-3 '>
 			<div className='max-w-7xl mx-auto px-5 mb-3'>
+				<Ad />
 				<div className='mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 xl:grid-cols-3 xl:gap-x-8'>
 					{news?.map((n, i) => {
 						return (

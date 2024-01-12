@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { type SERIE, type COMIC } from '@/app/types'
 import ListImage from '@/app/components/ListImage'
+import Ad from './Ad'
 
 function ComicList({ slug }: { slug: string }): React.JSX.Element {
 	const [serie, comics]: [SERIE, COMIC[] | null] = useComics(slug)
@@ -25,6 +26,7 @@ function ComicList({ slug }: { slug: string }): React.JSX.Element {
 
 	return (
 		<div className='comic-list grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4'>
+			<Ad />
 			<div
 				className='relative col-span-1 row-span-3 flex flex-col items-center justify-center gap-4 overflow-hidden lg:rounded-br-lg px-6 lg:pb-16  text-center sm:col-span-2 lg:col-span-1 lg:row-span-1 lg:pt-0 lg:min-h-[491px]'
 				style={{ backgroundColor: 'rgb(var(--green))' }}>
