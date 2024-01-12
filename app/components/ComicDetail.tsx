@@ -63,7 +63,6 @@ function ComicDetail({ slug }: { slug: string }): React.JSX.Element {
 									alt={`Página ${i + 1} del comic ${comic.title}`}
 									width={window.innerWidth < 1024 ? window.innerWidth : 1024}
 									height={1572}
-									placeholder='blur'
 									className='w-full h-auto block'
 								/>
 								{i % 5 === 0 ? <Ad /> : <></>}
