@@ -5,13 +5,30 @@ import useComic from '@/app/hooks/useComic'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import Ad from '@/app/components/Ad'
+import { useCallback, useEffect, useState } from 'react'
 
 function ComicDetail({ slug }: { slug: string }): React.JSX.Element {
 	const [serie, comic] = useComic(slug)
+	const [pagesToShow, setPagesToShow] = useState<number>(2)
 
 	if (comic === null) {
 		notFound()
 	}
+
+	const onScroll = useCallback(() => {
+		const { scrollY } = window
+		const currentHeight = document.querySelector('main')!.clientHeight
+		if (scrollY >= currentHeight - 2000) {
+			setPagesToShow(currentPages => currentPages + 1)
+		}
+	}, [])
+
+	useEffect(() => {
+		window.addEventListener('scroll', onScroll)
+		return () => {
+			window.removeEventListener('scroll', onScroll)
+		}
+	}, [])
 
 	return (
 		<section>
@@ -54,7 +71,7 @@ function ComicDetail({ slug }: { slug: string }): React.JSX.Element {
 				<Ad />
 				{comic.pages !== undefined &&
 					Object.keys(comic.pages).length > 0 &&
-					comic.pages?.map((page: string, i: number) => {
+					comic.pages?.slice(0, pagesToShow).map((page: string, i: number) => {
 						return (
 							<div key={i}>
 								<img

@@ -7,9 +7,26 @@ import { notFound } from 'next/navigation'
 import { type SERIE, type COMIC } from '@/app/types'
 import ListImage from '@/app/components/ListImage'
 import Ad from './Ad'
+import { useCallback, useEffect, useState } from 'react'
 
 function ComicList({ slug }: { slug: string }): React.JSX.Element {
 	const [serie, comics]: [SERIE, COMIC[] | null] = useComics(slug)
+	const [comicsToShow, setComicsToShow] = useState<number>(7)
+
+	const onScroll = useCallback(() => {
+		const { scrollY } = window
+		const currentHeight = document.querySelector('main')!.clientHeight
+		if (scrollY >= currentHeight - 1200) {
+			setComicsToShow(currentComics => currentComics + 8)
+		}
+	}, [])
+
+	useEffect(() => {
+		window.addEventListener('scroll', onScroll)
+		return () => {
+			window.removeEventListener('scroll', onScroll)
+		}
+	}, [])
 
 	let altImage: string | undefined = ''
 	if (comics?.length === 0) {
@@ -46,7 +63,7 @@ function ComicList({ slug }: { slug: string }): React.JSX.Element {
 						{serie.title}
 					</h1>
 				</div>
-				{comics?.map((comic, i) => {
+				{comics?.slice(0, comicsToShow).map((comic, i) => {
 					return (
 						<Link
 							key={i}
