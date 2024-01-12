@@ -1,8 +1,15 @@
 import { useEffect } from 'react'
 
+declare global {
+	interface Window {
+		adsbygoogle: any
+	}
+}
+
 function Ad(): React.JSX.Element {
 	useEffect(() => {
 		try {
+			window.adsbygoogle = Boolean(window.adsbygoogle) || []
 			window.adsbygoogle.push({})
 		} catch (e) {}
 	})
