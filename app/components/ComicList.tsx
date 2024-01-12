@@ -18,6 +18,7 @@ function ComicList({ slug }: { slug: string }): React.JSX.Element {
 		const currentHeight = document.querySelector('main')!.clientHeight
 		if (scrollY >= currentHeight - 1200) {
 			setComicsToShow(currentComics => currentComics + 8)
+			const window: any = {}
 			window.adsbygoogle.push({})
 		}
 	}, [])
