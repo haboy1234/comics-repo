@@ -39,7 +39,7 @@ function ComicList({ slug }: { slug: string }): React.JSX.Element {
 						/>
 					</span>
 				</div>
-				<h1 className='relative mt-0 lg:mt-8 mb-4 font-bold uppercase tracking-widest text-2xl lg:text-4xl text-border-green pl-16 pr-0'>
+				<h1 className='relative mt-0 lg:mt-8 mb-4 font-bold uppercase tracking-widest text-2xl lg:text-4xl text-border-green pl-16 pr-0 lg:p-4'>
 					{serie.title}
 				</h1>
 			</div>
