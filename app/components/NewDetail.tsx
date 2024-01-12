@@ -37,7 +37,7 @@ function NewDetail({ slug }: { slug: string }): React.JSX.Element {
 				return (
 					<p className='my-5 px-6 lg:px-8' key={i}>
 						{c}
-						{i % 5 === 0 ? <Ad /> : <></>}
+						{i % 3 === 0 ? <Ad /> : <></>}
 					</p>
 				)
 			})}
