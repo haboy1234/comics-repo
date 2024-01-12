@@ -46,6 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
 				<Script
 					async
 					src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4311249285901114'
+					strategy='lazyOnload'
 					crossOrigin='anonymous'></Script>
 			</body>
 		</html>
