@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import Image from 'next/image'
 
 function ListImage({
 	src,
@@ -13,7 +12,7 @@ function ListImage({
 	const [finalSrc, setFinalSrc] = useState<string>(src)
 
 	return (
-		<Image
+		<img
 			src={finalSrc}
 			width={300}
 			height={450}
