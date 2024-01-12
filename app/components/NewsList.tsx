@@ -3,7 +3,6 @@
 import { notFound } from 'next/navigation'
 import useNews from '../hooks/useNews'
 import { type NEW } from '../types'
-import Image from 'next/image'
 import Button from './Button'
 import Ad from './Ad'
 
@@ -26,7 +25,7 @@ function NewsList({ page }: { page: number }): React.JSX.Element {
 								key={i}
 								className='max-w-xl rounded-lg border bg-[rgb(var(--dark-green))] border-[rgb(var(--green))]'>
 								<a href={`/blog/${n.url}`} className='block overflow-hidden h-56'>
-									<Image
+									<img
 										className='rounded-t-lg pb-2 min-h-56'
 										src={`/images/${n.image}`}
 										width={window.innerWidth < 600 ? window.innerWidth : 600}

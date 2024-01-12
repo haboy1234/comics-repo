@@ -3,7 +3,6 @@
 import { notFound } from 'next/navigation'
 import useNew from '../hooks/useNew'
 import { type NEW } from '../types'
-import Image from 'next/image'
 import Ad from './Ad'
 
 function NewDetail({ slug }: { slug: string }): React.JSX.Element {
@@ -16,7 +15,7 @@ function NewDetail({ slug }: { slug: string }): React.JSX.Element {
 
 	return (
 		<article className='w-full max-w-2xl mx-auto pb-8 bg-[rgb(var(--black))]'>
-			<Image
+			<img
 				src={`/images/${n?.image}`}
 				width={window.innerWidth < 500 ? window.innerWidth : 500}
 				height={500}
