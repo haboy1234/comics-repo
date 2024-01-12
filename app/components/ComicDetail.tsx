@@ -3,7 +3,6 @@
 import Button from '@/app/components/Button'
 import useComic from '@/app/hooks/useComic'
 import Link from 'next/link'
-import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import Ad from '@/app/components/Ad'
 
