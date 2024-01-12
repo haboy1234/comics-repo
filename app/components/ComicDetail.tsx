@@ -20,8 +20,6 @@ function ComicDetail({ slug }: { slug: string }): React.JSX.Element {
 		const currentHeight = document.querySelector('main')!.clientHeight
 		if (scrollY >= currentHeight - 2000) {
 			setPagesToShow(currentPages => currentPages + 1)
-			const window: any = {}
-			window.adsbygoogle.push({})
 		}
 	}, [])
 
