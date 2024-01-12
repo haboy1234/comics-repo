@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Header from './components/Header'
-import Script from 'next/script'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -43,11 +42,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
 					<Header />
 					<main className='flex-1 bg-cover relative'>{children}</main>
 				</div>
-				<Script
+				<script
 					async
 					src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4311249285901114'
-					strategy='lazyOnload'
-					crossOrigin='anonymous'></Script>
+					crossOrigin='anonymous'></script>
 			</body>
 		</html>
 	)
