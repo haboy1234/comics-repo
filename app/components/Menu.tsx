@@ -31,7 +31,7 @@ function Menu(): React.JSX.Element {
 				<ul
 					className='w-full overflow-y-auto overflow-x-clip max-w-64 pt-3 border-b-2 absolute top-[103px] bottom-[33px]'
 					style={{ backgroundColor: 'rgb(var(--black))', borderBottomColor: 'rgb(var(--dark-green))' }}>
-					{filter?.map((serie, index) => {
+					{filter?.slice(0, 50).map((serie, index) => {
 						return (
 							<li key={index}>
 								<Link
