@@ -17,7 +17,8 @@ export async function GET(request: Request): Promise<Response> {
 	const to = from + newsPerPage
 	try {
 		const res = await JSON.parse(file)
-		const news: NEW[] = res.sort(orderByDate).reverse().slice(from, to)
+		const allNewsOrdered: NEW[] = res.sort(orderByDate).reverse()
+		const news: NEW[] = allNewsOrdered.filter(n => new Date(n.date).getTime() <= new Date().getTime()).slice(from, to)
 		return Response.json(news)
 	} catch (e) {
 		return Response.json([{}])

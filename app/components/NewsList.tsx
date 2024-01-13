@@ -37,7 +37,13 @@ function NewsList({ page }: { page: number }): React.JSX.Element {
 									<a href={`/blog/${n.url}`}>
 										<h2 className='mb-2 text-2xl font-bold tracking-tight  text-white'>{n.title}</h2>
 									</a>
-									<div className='text-xs font-bold uppercase text-[#46635b] mt-1 mb-2'></div>
+									<div className='text-xs font-bold uppercase text-[#46635b] mt-1 mb-2'>{`${new Date(
+										n.date
+									).toLocaleDateString('es-es', {
+										year: 'numeric',
+										month: 'short',
+										day: 'numeric'
+									})}`}</div>
 
 									<p className='mb-3 font-normal text-gray-400'>{`${n.content
 										.filter(c => c.trim().length > 0)
