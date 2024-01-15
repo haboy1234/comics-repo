@@ -43,9 +43,9 @@ function Menu(): React.JSX.Element {
 					}}
 					className='w-full overflow-y-auto overflow-x-clip max-w-64 pt-3 border-b-2 absolute top-[103px] bottom-[33px]'
 					style={{ backgroundColor: 'rgb(var(--black))', borderBottomColor: 'rgb(var(--dark-green))' }}>
-					{filter?.slice(0, seriesToShow).map((serie, index) => {
+					{filter?.map((serie, index) => {
 						return (
-							<li key={index}>
+							<li key={index} className={index < seriesToShow ? '' : 'hidden'}>
 								<Link
 									href={`/categorias/${serie.url}`}
 									className='block pl-4 pb-1 hover:bg-[rgb(var(--green))] text-border-green'>
