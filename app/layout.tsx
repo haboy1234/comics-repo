@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Header from './components/Header'
+import Script from 'next/script'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -46,6 +47,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
 					async
 					src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4311249285901114'
 					crossOrigin='anonymous'></script>
+				<Script async src='https://www.googletagmanager.com/gtag/js?id=G-HL844MCWYT' />
+				<Script id='analytics' strategy='lazyOnload'>
+					{`
+						window.dataLayer = window.dataLayer || [];
+						function gtag(){dataLayer.push(arguments);}
+						gtag('js', new Date());
+						gtag('config', 'G-HL844MCWYT', {
+						page_path: window.location.pathname,
+						});
+				`}
+				</Script>
 			</body>
 		</html>
 	)
