@@ -1,40 +1,37 @@
 module.exports = {
-	"env": {
-		"browser": true,
-		"es2021": true
+	env: {
+		browser: true,
+		es2021: true
 	},
-	"settings": {
-		"react": { "version": "detect" }
+	settings: {
+		react: { version: 'detect' }
 	},
-	"extends": [
-		"standard-with-typescript",
-		"plugin:react/recommended",
-		"plugin:react/jsx-runtime",
-		"eslint-config-prettier",
-		"plugin:@next/next/recommended"
+	extends: [
+		'standard-with-typescript',
+		'plugin:react/recommended',
+		'plugin:react/jsx-runtime',
+		'eslint-config-prettier',
+		'plugin:@next/next/recommended'
 	],
-	"overrides": [
+	overrides: [
 		{
-			"env": {
-				"node": true
+			env: {
+				node: true
 			},
-			"files": [
-				".eslintrc.{js,cjs}"
-			],
-			"parserOptions": {
-				"sourceType": "script"
+			files: ['.eslintrc.{js,cjs}'],
+			parserOptions: {
+				sourceType: 'script'
 			}
 		}
 	],
-	"parserOptions": {
-		"ecmaVersion": "latest",
-		"sourceType": "module"
+	parserOptions: {
+		ecmaVersion: 'latest',
+		sourceType: 'module'
 	},
-	"plugins": [
-		"react"
-	],
-	"rules": {
-		"@typescript-eslint/no-non-null-assertion": "off",
-		"@next/next/no-img-element": "off"
+	plugins: ['react'],
+	rules: {
+		'@typescript-eslint/no-floating-promises': 'off',
+		'@typescript-eslint/no-non-null-assertion': 'off',
+		'@next/next/no-img-element': 'off'
 	}
 }

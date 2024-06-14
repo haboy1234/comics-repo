@@ -1,6 +1,7 @@
 'use client'
 
 import Button from '@/app/components/Button'
+import Youtube from '@/app/components/Youtube'
 import useComic from '@/app/hooks/useComic'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -32,6 +33,7 @@ function ComicDetail({ slug }: { slug: string }): React.JSX.Element {
 
 	return (
 		<section>
+			<Youtube />
 			<div className='flex sticky top-0 min-h-[62px] bg-[rgb(var(--green))] text-center z-10 border-b-2 border-[rgb(var(--dark-green))]'>
 				<div className='lg:hidden flex-[60px_0_0]'></div>
 				{comic.prevUrl !== undefined ? (
