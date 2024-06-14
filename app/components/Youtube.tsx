@@ -16,7 +16,11 @@ export default function Youtube(): React.JSX.Element {
 
 	return (
 		<>
-			<button onClick={() => onClick} style={{ opacity: 0, display: showButton }}></button>
+			<button
+				onClick={() => {
+					onClick()
+				}}
+				style={{ opacity: 0, display: showButton }}></button>
 			<div id='video-player' style={{ position: 'absolute', top: '-3000px' }}></div>
 		</>
 	)
