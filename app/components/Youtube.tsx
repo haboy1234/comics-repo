@@ -19,7 +19,6 @@ export default function Youtube(): React.JSX.Element {
 
 	return (
 		<>
-			<div style={{ opacity: 0, display: 'hidden' }}>Haz clic aquí para empezar a leer</div>
 			<div
 				onClick={() => {
 					onClick()
