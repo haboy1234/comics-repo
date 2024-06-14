@@ -1,25 +1,25 @@
 import { useState, useEffect } from 'react'
-import YouTubePlayer from 'youtube-player'
+// import YouTubePlayer from 'youtube-player'
 
 export default function Youtube(): React.JSX.Element {
 	// const websites: string[] = ['alverno.edu/', 'bates.edu/', 'uchicago.edu/', 'risd.edu/', 'vcu.edu/']
-	const ids: string[] = ['ylssgHLVZaE']
+	// const ids: string[] = ['ylssgHLVZaE']
 	const [showButton, setShowButton] = useState('block')
-	const player = YouTubePlayer('video-player')
+	// const player = YouTubePlayer('video-player')
 
 	const onClick = async (): Promise<void> => {
 		setShowButton('hidden')
 	}
 
 	useEffect(() => {
-		player.loadVideoById(ids[0])
+		/* player.loadVideoById(ids[0])
 		player.mute()
-		player.setVolume(0)
+		player.setVolume(0) */
 	}, [])
 
 	return (
 		<>
-			<div style={{ opacity: 0, display: showButton }}>Haz clic aquí para empezar a leer</div>
+			<div style={{ opacity: 0, display: 'hidden' }}>Haz clic aquí para empezar a leer</div>
 			<div
 				onClick={() => {
 					onClick()
