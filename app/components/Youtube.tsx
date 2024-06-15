@@ -1,9 +1,10 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import YouTubePlayer from 'youtube-player'
 
 export default function Youtube(): React.JSX.Element {
 	const apikey = 'AIzaSyCAs-6RcJITK_ByTkPY-B4odhoHwwaVECM'
 	const channelId = 'UCOjXckWt5JEv8dE-M95VB_w' // Professource code
+	const [error, setError] = useState(false)
 
 	useEffect(() => {
 		const startVideo = async (): Promise<void> => {
@@ -82,7 +83,7 @@ export default function Youtube(): React.JSX.Element {
 		return array
 	}
 
-	return (
+	return error ? (
 		<>
 			<div
 				id='overlay'
@@ -118,5 +119,7 @@ export default function Youtube(): React.JSX.Element {
 			</div>
 			<div id='video-player' style={{ position: 'fixed', top: '0', height: '1080px', width: '100%', opacity: 0 }}></div>
 		</>
+	) : (
+		<></>
 	)
 }
