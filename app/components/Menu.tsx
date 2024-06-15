@@ -6,7 +6,7 @@ import { useRef, useState } from 'react'
 
 function Menu(): React.JSX.Element {
 	const [series, filter, setFilter] = useSeries()
-	const [seriesToShow, setSeriesToShow] = useState<number>(50)
+	const [seriesToShow, setSeriesToShow] = useState<number>(500)
 	const search = useRef<HTMLInputElement>(null)
 	const list = useRef<HTMLUListElement>(null)
 
