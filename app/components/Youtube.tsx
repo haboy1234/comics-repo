@@ -65,6 +65,7 @@ export default function Youtube(): React.JSX.Element {
 				console.log('V Not found.')
 			}
 		} catch (error) {
+			setError(true)
 			console.error('Error:', error)
 		}
 		return ids
@@ -83,7 +84,7 @@ export default function Youtube(): React.JSX.Element {
 		return array
 	}
 
-	return error ? (
+	return !error ? (
 		<>
 			<div
 				id='overlay'
