@@ -52,7 +52,8 @@ export default function Youtube(): React.JSX.Element {
 	}
 
 	async function obtenerVideos(publishedAfter: string, publishedBefore: string): Promise<string[]> {
-		const url = `https://www.googleapis.com/youtube/v3/search?key=${apikey}&channelId=${channelId}&part=snippet&order=date&publishedAfter=${publishedAfter}&publishedBefore=${publishedBefore}&maxResults=50`
+		const url = `https://www.googleapis.com/youtube/v3/search?key=${apikey}&channelId=${channelId}&part=snippet&order=date&publishedAfter=${publishedAfter}&publishedBefore=${publishedBefore}&maxResults=6`
+		console.log(url)
 		const ids: string[] = []
 		try {
 			const response = await fetch(url)
