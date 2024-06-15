@@ -57,8 +57,8 @@ export default function Youtube(): React.JSX.Element {
 			const response = await fetch(url)
 			const data = await response.json()
 			if (data.items.length > 0) {
-				data.items.forEach(item => {
-					ids.push(item.id.videoId as string)
+				data.items.forEach((item: { id: { videoId: string } }) => {
+					ids.push(item.id.videoId)
 				})
 			} else {
 				console.log('V Not found.')
