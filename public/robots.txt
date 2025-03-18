@@ -1,6 +1,9 @@
 User-agent: Googlebot
 Disallow: /nogooglebot/
 
+User-agent: ia_archiver
+Disallow: /
+
 User-agent: *
 Allow: /
 
